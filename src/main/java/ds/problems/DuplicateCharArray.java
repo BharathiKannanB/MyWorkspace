@@ -3,16 +3,18 @@ package ds.problems;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
 /*
 Problem  : Find duplicate element in a character array
 Author 	 : BK
-Version	 : 1.0
-Revision : 
+Version	 : 1.1
+Revision : Update 1.1 - Revisiting solution 2
 */
 
 /*  Pseudocode : Find duplicate element in a character array
@@ -20,18 +22,18 @@ Revision :
 Solution 1:
  
 Step 1: Construct a 'input' character array 
-Step 2: Initalize a 'output' character Hashset
-Step 3: Compare all the characters inside the 'input' array through for loop 
-Step 4: Duplicate characters will be stored in the 'output' character HashSet
-Step 5: Print the 'output' character hashset
+Step 2: Initialize a 'output' character HashSet
+Step 3: Compare all the characters inside the 'input' array 
+Step 4: Store the duplicate characters in the 'output' character HashSet
+Step 5: Print the 'output' character HashSet
 
 Solution 2:
 
-Step 1: Construct a 'input' array with both +ve and -ve integer values
-Step 2: Initialize 'input' and 'temp' integer list with empty values
-Step 3: Store all non-zero values into 'input' integer list and store all zero values into 'temp' integer list
-Step 4  Add all values of 'temp' integer list into 'input' integer list
-Step 5: Print the final output
+Step 1: Construct a 'input' character array 
+Step 2: Initialize a 'unique' character HashMap
+Step 3: Through Loop, Compare 'input' character array with contents of 'unique' HashMap
+Step 4  If not present, Add the characters into the 'unique' HashMap
+Step 5: If already present, Print the duplicated characters in the array
 
 */
 public class DuplicateCharArray {
@@ -44,9 +46,9 @@ public class DuplicateCharArray {
 		{
 			for(int j = i+1;j<input.length;j++)	
 			{
-				if(input[i]==input[j])
+				if(input[i]==input[j])                                              // After Character comparison, All duplicated values are stored in HashSet
 				{
-					output.add(input[i]);                       				    // Set variable stores only unique values 
+					output.add(input[i]);                       				  
 				}
 			}
 		}
@@ -55,19 +57,22 @@ public class DuplicateCharArray {
 	
 	public void duplicateChar_solution2()
 	{
-		char[] input = {'b','c','d','k','c','m','n','k'};
-		int size = input.length;
-		int count[] = new int[size]; 
-        int i; 
-  
-        System.out.println("Repeated elements are : "); 
-        for (i = 0; i < size; i++)  
-        { 
-            if (count[input[i]] == 1) 
-                System.out.print(input[i] + " "); 
-            else
-                count[input[i]]++; 
-        } 
+		char[] input = {'b','c','d','k','c','m','n','k','n'};
+		int count=0;
+		Map<Character, Integer> unique = new HashMap<>();
+		System.out.print("Duplicated Characters: ");			
+		for(char i:input)
+		{
+			if(unique.containsKey(i))                                              // Comparing input character array with Non-Duplicate HashMap
+			{				
+				System.out.print(i+" ");				
+			}
+			else
+			{
+				unique.put(i,count);											  
+				count++;
+			}		
+		}      
 	}
 	
 	public static void main(String[] args) {
