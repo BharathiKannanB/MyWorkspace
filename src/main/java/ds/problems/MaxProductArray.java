@@ -37,7 +37,7 @@ Step 4: Print the product output
 */
 public class MaxProductArray {
 	
-	public void maxproduct_solution1()
+	public void maxProduct_solution1()
 	{
 		int max=0, temp, arraysize;
 		Scanner input = new Scanner(System.in);
@@ -53,8 +53,8 @@ public class MaxProductArray {
 		{
 			for(int k=0;k<arraysize-1;k++)	
 			{
-				temp = j*iparray[k];
-				if(temp>max)
+				temp = j*iparray[k];                     				 		 	// All product combinations in an array
+				if(temp>max)							 				 			 // Comparing all product combinations and finding the maximum value
 				{
 					max=temp;
 				}
@@ -63,7 +63,7 @@ public class MaxProductArray {
 		System.out.println("Maxium product value of an input array "+max);
 	}
 	
-	public void maxproduct_solution2()
+	public void maxProduct_solution2()
 	{
 		int output, arraysize;
 		Scanner input = new Scanner(System.in);
@@ -75,16 +75,16 @@ public class MaxProductArray {
 		{
 			iparray[i] = input.nextInt();
 		}
-		Arrays.sort(iparray);
-		output = iparray[arraysize-1]*iparray[arraysize-2];
+		Arrays.sort(iparray);														//Sorting the array values in ascending order
+		output = iparray[arraysize-1]*iparray[arraysize-2];							// Product of highest two values in the i/p array
 		System.out.println("Maxium product value of an input array "+output);
 	}
 	
 	public static void main(String[] args) {
 			
 		MaxProductArray object = new MaxProductArray();
-		object.maxproduct_solution1();
-		object.maxproduct_solution2();
+		object.maxProduct_solution1();
+		object.maxProduct_solution2();
 	}
 
 }

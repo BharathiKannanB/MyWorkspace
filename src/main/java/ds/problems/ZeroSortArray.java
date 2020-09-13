@@ -46,14 +46,14 @@ public class ZeroSortArray {
 		{
 			iparray[i] = input.nextInt();	
 		} 
-		Arrays.sort(iparray);                                                    //Array ascending sort
+		Arrays.sort(iparray);                                                         //Sorting the array values in ascending order
 		System.out.println("Zero sorted Array");
 		List<Integer> revlist =  new ArrayList<Integer>();
-		for(int j:iparray)
+		for(int j:iparray)														      //Converting Array into List
 		{
 			revlist.add(j);
 		}
-		Collections.reverse(revlist);                                            //ArrayList reverse
+		Collections.reverse(revlist);                                         		  //Reverse the list
 		System.out.println(revlist);
 	
 	}
@@ -71,10 +71,10 @@ public class ZeroSortArray {
 			}
 			else
 			{
-			revlist.add(i);
+			revlist.add(i);															// Removing all zeros in the array and storing in a ArrayList
 			}
 		}
-		revlist.addAll(zerolist);                                       			// List maintains insertion order
+		revlist.addAll(zerolist);                                       			// Adding all zeros at last of the ArrayList as List maintains insertion order
 		System.out.println(revlist);
 	}
 	
