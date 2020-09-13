@@ -35,6 +35,7 @@ Step 3: Multiply the last two values in the array and store the output
 Step 4: Print the product output
 
 */
+
 public class MaxProductArray {
 	
 	public void maxProduct_solution1()
@@ -54,7 +55,7 @@ public class MaxProductArray {
 			for(int k=0;k<arraysize-1;k++)	
 			{
 				temp = j*iparray[k];                     				 		 	// All product combinations in an array
-				if(temp>max)							 				 			 // Comparing all product combinations and finding the maximum value
+				if(temp>max)							 				 			// Comparing all product combinations and finding the maximum value
 				{
 					max=temp;
 				}
@@ -80,8 +81,8 @@ public class MaxProductArray {
 		System.out.println("Maxium product value of an input array "+output);
 	}
 	
-	public static void main(String[] args) {
-			
+	public static void main(String[] args) 
+	{	
 		MaxProductArray object = new MaxProductArray();
 		object.maxProduct_solution1();
 		object.maxProduct_solution2();
